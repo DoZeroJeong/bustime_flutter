@@ -19,6 +19,7 @@ class CitiesList extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (context) => TimeTableScreen()),
                 );
+                print(index + 1);
               },
             );
           },
