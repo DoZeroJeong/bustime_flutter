@@ -1,10 +1,10 @@
 import 'package:bustime_flutter/services/networking.dart';
 
-const localURL = 'http://a46a7aa5.ngrok.io/timetable/inje';
+const localURL = 'http://5335a4d1.ngrok.io/timetable/inje';
 
 class TimeTableModel {
-  Future<dynamic> getBusTimeTable(int index) async {
-    NetworkHelper networkHelper = NetworkHelper('$localURL/$index');
+  Future<dynamic> getBusTimeTable() async {
+    NetworkHelper networkHelper = NetworkHelper('$localURL/');
 
     var timetableData = await networkHelper.getData();
     return timetableData;
