@@ -13,6 +13,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    void _showDialog() {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('서비스 준비중 입니다.'),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('확인'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -90,10 +108,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else if (index == 1) {
                   selectedCity = false;
                   selectedInterCity = true;
-                  showModalBottomSheet(
-                    context: context,
-                    builder: (context) => BottomSheetScreen(),
-                  );
+                  _showDialog();
+//                  showModalBottomSheet(
+//                    context: context,
+//                    builder: (context) => BottomSheetScreen(),
+//                  );
                 }
               });
             },

@@ -17,9 +17,11 @@ class CitiesList extends StatelessWidget {
               tapCallback: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TimeTableScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => TimeTableScreen(
+                            numberCity: index + 1,
+                          )),
                 );
-                print(index + 1);
               },
             );
           },
