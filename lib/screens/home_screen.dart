@@ -1,6 +1,5 @@
 import 'package:bustime_flutter/screens/bottomsheet_screen.dart';
 import 'package:bustime_flutter/utilities/constants.dart';
-import 'package:bustime_flutter/widgets/dialog.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +13,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    void _showDialog() {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('서비스 준비중 입니다.'),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('확인'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -91,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else if (index == 1) {
                   selectedCity = false;
                   selectedInterCity = true;
-                  ShowDialog();
+                  _showDialog();
 //                  showModalBottomSheet(
 //                    context: context,
 //                    builder: (context) => BottomSheetScreen(),
