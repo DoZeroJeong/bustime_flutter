@@ -1,6 +1,7 @@
 import 'package:bustime_flutter/screens/bottomsheet_screen.dart';
 import 'package:bustime_flutter/utilities/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,6 +14,33 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String appId = 'ca-app-pub-2758467454562548~6392284239';
+    FirebaseAdMob.instance.initialize(appId: appId);
+
+    MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+      keywords: <String>['game', 'lol'],
+      contentUrl: 'https://flutter.io',
+      childDirected: false,
+      testDevices: <String>[], // Android emulators are considered test devices
+    );
+
+    BannerAd myBanner = BannerAd(
+      adUnitId: BannerAd.testAdUnitId,
+      size: AdSize.smartBanner,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("BannerAd event is $event");
+      },
+    );
+
+    myBanner
+      ..load()
+      ..show(
+        anchorOffset: MediaQuery.of(context).size.height * 0.3,
+        horizontalCenterOffset: 0.0,
+        anchorType: AnchorType.top,
+      );
+
     void _showDialog() {
       showDialog(
           context: context,
