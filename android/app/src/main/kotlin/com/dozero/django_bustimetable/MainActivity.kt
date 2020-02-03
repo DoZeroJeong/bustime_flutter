@@ -1,4 +1,4 @@
-package com.dozero.bustime_flutter
+package com.dozero.django_bustimetable
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
