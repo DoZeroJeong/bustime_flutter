@@ -35,7 +35,7 @@ class TimeTableScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.14,
                     ),
                     Expanded(
                       child: ListView.builder(

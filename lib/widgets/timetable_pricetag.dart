@@ -1,3 +1,4 @@
+import 'package:bustime_flutter/widgets/pricetag_name.dart';
 import 'package:flutter/material.dart';
 
 class TimeTablePriceTag extends StatelessWidget {
@@ -12,13 +13,13 @@ class TimeTablePriceTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300.0,
-      height: 150.0,
+      width: MediaQuery.of(context).size.width * 0.75,
+      height: MediaQuery.of(context).size.height * 0.17,
       child: Material(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(20.0),
         ),
-        elevation: 5.0,
+        elevation: 6.0,
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,50 +39,17 @@ class TimeTablePriceTag extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Expanded(
-                    child: ListTile(
-                      title: Text(
-                        '일반',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text(
-                        adultFee,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+                  PriceName(
+                    priceNameTitle: '일반',
+                    priceNameSubTitle: adultFee,
                   ),
-                  Expanded(
-                    child: ListTile(
-                      title: Text(
-                        '중고생',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text(
-                        teenagerFee,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+                  PriceName(
+                    priceNameTitle: '중고생',
+                    priceNameSubTitle: teenagerFee,
                   ),
-                  Expanded(
-                    child: ListTile(
-                      title: Text(
-                        '초등학생',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text(
-                        childFee,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+                  PriceName(
+                    priceNameTitle: '초등학생',
+                    priceNameSubTitle: childFee,
                   ),
                 ],
               ),

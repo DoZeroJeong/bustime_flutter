@@ -1,5 +1,6 @@
 import 'package:bustime_flutter/screens/bottomsheet_screen.dart';
 import 'package:bustime_flutter/utilities/constants.dart';
+import 'package:bustime_flutter/widgets/bus_terminal.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 
@@ -83,41 +84,13 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedColor: Colors.white,
             borderRadius: BorderRadius.circular(10.0),
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Icon(
-                      Icons.directions_bus,
-                      size: 40.0,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Text(
-                      '인제 시외버스',
-                      style: kToggleTextStyle,
-                    )
-                  ],
-                ),
+              ToggleContainer(
+                busName: '인제 시내버스',
+                busIcon: Icons.directions_bus,
               ),
-              Container(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Icon(
-                      Icons.directions_bus,
-                      size: 40.0,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Text(
-                      '인제 시내버스',
-                      style: kToggleTextStyle,
-                    )
-                  ],
-                ),
+              ToggleContainer(
+                busName: '인제 시외버스',
+                busIcon: Icons.directions_bus,
               ),
             ],
             isSelected: [
@@ -144,9 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               });
             },
-          ),
-          SizedBox(
-            height: 20.0,
           ),
         ],
       ),

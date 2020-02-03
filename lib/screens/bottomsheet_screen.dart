@@ -5,15 +5,17 @@ class BottomSheetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF737377),
+      height: MediaQuery.of(context).size.height * 0.51,
+      color: Color(0xFF757575),
       child: Container(
         child: CitiesList(),
         decoration: BoxDecoration(
-            color: Theme.of(context).canvasColor,
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(30.0),
-              topLeft: Radius.circular(30.0),
-            )),
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20.0),
+            topLeft: Radius.circular(20.0),
+          ),
+        ),
       ),
     );
   }
