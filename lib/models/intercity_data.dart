@@ -26,7 +26,8 @@ class CityData extends ChangeNotifier {
     City(cityName: '현리→진동.방동'),
   ];
 
-  UnmodifiableListView<City> get interCities => UnmodifiableListView(_interCities);
+  UnmodifiableListView<City> get interCities =>
+      UnmodifiableListView(_interCities);
 
   int get intercityCount => _interCities.length;
 }
