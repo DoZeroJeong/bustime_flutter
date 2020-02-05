@@ -1,4 +1,4 @@
-import 'package:bustime_flutter/screens/bottomsheet_screen.dart';
+import 'package:bustime_flutter/screens/citiy_bottomsheet_screen.dart';
 import 'package:bustime_flutter/utilities/constants.dart';
 import 'package:bustime_flutter/widgets/bus_terminal.dart';
 import 'package:flutter/material.dart';
