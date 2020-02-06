@@ -4,10 +4,10 @@ import 'package:bustime_flutter/widgets/timetable_pricetag.dart';
 import 'package:flutter/material.dart';
 import 'package:bustime_flutter/utilities/constants.dart';
 
-class TimeTableScreen extends StatelessWidget {
+class CityTimeTableScreen extends StatelessWidget {
   final int numberCity;
 
-  TimeTableScreen({this.numberCity});
+  CityTimeTableScreen({this.numberCity});
 
   @override
   Widget build(BuildContext context) {

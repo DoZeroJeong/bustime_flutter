@@ -1,4 +1,5 @@
 import 'package:bustime_flutter/screens/citiy_bottomsheet_screen.dart';
+import 'package:bustime_flutter/screens/intercity_bottomsheet_screen.dart';
 import 'package:bustime_flutter/utilities/constants.dart';
 import 'package:bustime_flutter/widgets/bus_terminal.dart';
 import 'package:flutter/material.dart';
@@ -41,24 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
         horizontalCenterOffset: 0.0,
         anchorType: AnchorType.top,
       );
-
-    void _showDialog() {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('서비스 준비중 입니다.'),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('확인'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          });
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -104,16 +87,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   selectedInterCity = false;
                   showModalBottomSheet(
                     context: context,
-                    builder: (context) => BottomSheetScreen(),
+                    builder: (context) => CityBottomSheetScreen(),
                   );
                 } else if (index == 1) {
                   selectedCity = false;
                   selectedInterCity = true;
-                  _showDialog();
-//                  showModalBottomSheet(
-//                    context: context,
-//                    builder: (context) => BottomSheetScreen(),
-//                  );
+//                  _showDialog();
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => InterCityBottomSheetScreen(),
+                  );
                 }
               });
             },

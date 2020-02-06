@@ -1,7 +1,7 @@
 import 'package:bustime_flutter/widgets/cities_list.dart';
 import 'package:flutter/material.dart';
 
-class BottomSheetScreen extends StatelessWidget {
+class CityBottomSheetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
