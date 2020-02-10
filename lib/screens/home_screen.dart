@@ -1,5 +1,4 @@
 import 'package:bustime_flutter/screens/citiy_bottomsheet_screen.dart';
-import 'package:bustime_flutter/screens/intercity_bottomsheet_screen.dart';
 import 'package:bustime_flutter/utilities/constants.dart';
 import 'package:bustime_flutter/widgets/bus_terminal.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +10,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool selectedCity = false;
-  bool selectedInterCity = false;
+  bool selectedInJeCity = false;
+  bool selectedWonCity = false;
+  bool selectedHCity = false;
 
   @override
   Widget build(BuildContext context) {
@@ -68,35 +68,46 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(10.0),
             children: <Widget>[
               ToggleContainer(
-                busName: '인제 시내버스',
+                busName: '인제 시외버스',
                 busIcon: Icons.directions_bus,
               ),
               ToggleContainer(
-                busName: '인제 시외버스',
+                busName: '원통 시외버스',
+                busIcon: Icons.directions_bus,
+              ),
+              ToggleContainer(
+                busName: '현리 시외버스',
                 busIcon: Icons.directions_bus,
               ),
             ],
             isSelected: [
-              selectedCity,
-              selectedInterCity,
+              selectedInJeCity,
+              selectedWonCity,
+              selectedHCity,
             ],
             onPressed: (index) {
               setState(() {
                 if (index == 0) {
-                  selectedCity = true;
-                  selectedInterCity = false;
+                  selectedInJeCity = true;
+                  selectedWonCity = false;
+                  selectedHCity = false;
                   showModalBottomSheet(
                     context: context,
                     builder: (context) => CityBottomSheetScreen(),
                   );
                 } else if (index == 1) {
-                  selectedCity = false;
-                  selectedInterCity = true;
+                  selectedInJeCity = false;
+                  selectedWonCity = true;
+                  selectedHCity = false;
 //                  _showDialog();
                   showModalBottomSheet(
                     context: context,
-                    builder: (context) => InterCityBottomSheetScreen(),
+                    builder: (context) => Container(),
                   );
+                } else {
+                  selectedInJeCity = false;
+                  selectedWonCity = false;
+                  selectedHCity = true;
                 }
               });
             },
